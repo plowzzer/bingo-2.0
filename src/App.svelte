@@ -1,26 +1,30 @@
 <script>
-  import { Router, Route, Link } from "svelte-navigator"
+  import { Router, Route } from "svelte-navigator"
 
   import Login from "./pages/Login.svelte"
   import Bingo from "./pages/Bingo.svelte"
 
-  // import { user } from "./stores";
+  import { user } from "./stories/user";
 
-  // function handleLogout() {
-  //   $user = null;
-  // }
+  function handleLogout() {
+    $user = null;
+    // navigate('/', { replace: true });
+  }
 </script>
 
 <Router basepath="/">
-  <!-- <header>
-    <h1>History</h1>
+  <header>
+    <h1>Bingo da Nave</h1>
+    {#if $user}
+      <p>Usuário Logado: {$user} <button on:click={() => handleLogout()}>Deslogar</button></p>
+    {/if}
 
-    <nav>
+    <!-- <nav>
       <Link to="/">Home</Link>
       <Link to="about">About</Link>
       <Link to="profile">Profile</Link>
-    </nav>
-  </header> -->
+    </nav> -->
+  </header>
 
   <main>
     <Route path="/" component={Login} />

@@ -1,6 +1,6 @@
 <script>
 	import { useNavigate, useLocation } from "svelte-navigator";
-  import { user } from "../stores/user";
+  import { user } from "../stories/user";
 
 	const navigate = useNavigate();
   const location = useLocation();
@@ -30,7 +30,7 @@
 	}
 </script>
 
-<input type="email" required bind:value={loginEmail} placeholder="E-mail">
+<input type="email" required bind:value={loginEmail} placeholder="Digite seu E-mail">
 
 <button on:click={handleLogin}>Entrar</button>
 
